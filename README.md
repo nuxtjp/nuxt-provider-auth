@@ -33,8 +33,14 @@ Use `pnpm@10.29.3` and the Node.js version declared in `engines` in `package.jso
 
 ```sh
 pnpm install --frozen-lockfile
+pnpm run typecheck
 pnpm test
+pnpm run build
 ```
+
+## Public input validation
+
+Import `isProviderAuthDescriptor` from `@nuxtjp/provider-auth/core` before rendering external JSON. The guard checks every declared field and bounded nested inputs and placements. Undeclared fields are rejected; credentials belong in external custody. Types live in `src/types` and executable ESM and declarations are generated together in `dist`.
 
 ## Integration example
 

@@ -12,7 +12,9 @@ Run from the repository root:
 
 ```sh
 pnpm install --frozen-lockfile
+pnpm run typecheck
 pnpm test
+pnpm run build
 ```
 
 ## How to assess the result
