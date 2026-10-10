@@ -25,14 +25,14 @@ Present the choices and progress of an external-service sign-in without embeddin
 
 The same-origin application server owns sessions, callbacks, placement and credential custody.
 
-Package distribution is not activated by this documentation. Use the checked-in source and the declared dependency versions; published availability must be verified separately.
+The `./core` export works without a Nuxt application. The Nuxt peer is optional for this standalone use; using the UI module requires an explicitly installed Nuxt host and Vue. An optional peer does not certify the host dependency graph.
 
 ## Getting started
 
 Use `pnpm@10.29.3` and the Node.js version declared in `engines` in `package.json`. Run from this repository:
 
 ```sh
-pnpm install --frozen-lockfile
+pnpm install --frozen-lockfile --ignore-scripts --config.auto-install-peers=false
 pnpm run typecheck
 pnpm test
 pnpm run build
@@ -54,3 +54,18 @@ Import `isProviderAuthDescriptor` from `@nuxtjp/provider-auth/core` before rende
 [Usage guide](docs/getting-started.md)
 
 [Implementation and public interfaces](src) · [Verification cases](test) · [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md) · [License](LICENSE) · [Attribution notices](NOTICE)
+
+## Host dependency security
+
+A Nuxt application must audit its complete dependency graph. Nuxt's transitive dependencies currently require the reviewed root-level overrides and backports distributed in `@nuxtjp/local-runtime@0.1.4`. This module does not silently install Nuxt or apply dependency patches. For a Nuxt host, configure the application explicitly:
+
+```sh
+pnpm add -D @nuxtjp/local-runtime@0.1.4
+node node_modules/@nuxtjp/local-runtime/security/apply.mjs --project-root . --apply
+pnpm install --no-frozen-lockfile
+pnpm install --frozen-lockfile
+node node_modules/@nuxtjp/local-runtime/security/dependency-security.check.cjs
+pnpm audit --json
+```
+
+Commit the generated root configuration, patches and lockfile. The braces and node-forge upstream advisories remain in version-only reports until upstream releases fixed versions; verify the actual installed backports. Any other advisory blocks host validation. npm-only Nuxt hosts are not covered by this pnpm backport procedure. Standalone core installation and a complete Nuxt application are separate verification scopes.
