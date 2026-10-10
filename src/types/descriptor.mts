@@ -1,3 +1,4 @@
+/** Public projections contain display metadata, never provider credentials. */
 export interface ProviderAuthInput {
   id: string
   label: string
@@ -28,5 +29,3 @@ export interface ProviderAuthDescriptor {
   secretPolicy: 'external-custody-only'
   actionLabel: string
 }
-
-export function isProviderAuthDescriptor(value: unknown): value is ProviderAuthDescriptor

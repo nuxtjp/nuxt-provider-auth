@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { ProviderAuthDescriptor } from '../../core'
+import type { ProviderAuthDescriptor } from '../../../types/descriptor.mjs'
 
 const props = defineProps<{ descriptor: ProviderAuthDescriptor, modelValue: Record<string, string>,
   pending?: boolean, errorMessage?: string | null }>()

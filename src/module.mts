@@ -1,6 +1,7 @@
+import type { ModuleOptions } from './types/module.mjs'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
 
-export default defineNuxtModule({
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: '@nuxtjp/provider-auth',
     configKey: 'nuxtJpProviderAuth',
