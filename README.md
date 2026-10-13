@@ -57,3 +57,5 @@ pnpm audit --json
 ```
 
 Commit the generated root configuration, patches and lockfile. The braces and node-forge upstream advisories remain in version-only reports until upstream releases fixed versions; verify the actual installed backports. Any other advisory blocks host validation. npm-only Nuxt hosts are not covered by this pnpm backport procedure. Standalone core installation and a complete Nuxt application are separate verification scopes.
+
+[OSS responsibility and source completion](docs/oss-source-contract.md) defines the supported package boundary and required acceptance. It does not declare unexecuted source, distribution or production checks complete.
