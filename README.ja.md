@@ -39,10 +39,10 @@ pnpm run build
 
 ## Nuxt hostの依存安全性
 
-Nuxtアプリは依存グラフ全体を監査します。英語正本の現行手順では、@nuxtjp/local-runtime@0.1.4が提供するroot overrideとbackportを使用します。このモジュールはNuxtを暗黙導入せず、依存patchも自動適用しません。
+Nuxtアプリは依存グラフ全体を監査します。英語正本の現行手順では、@nuxtjp/local-runtimeが提供するroot overrideとbackportを使用します。このモジュールはNuxtを暗黙導入せず、依存patchも自動適用しません。
 
 ```sh
-pnpm add -D @nuxtjp/local-runtime@0.1.4
+pnpm add -D @nuxtjp/local-runtime
 node node_modules/@nuxtjp/local-runtime/security/apply.mjs --project-root . --apply
 pnpm install --no-frozen-lockfile
 pnpm install --frozen-lockfile
@@ -51,3 +51,6 @@ pnpm audit --json
 ```
 
 生成されたroot設定・patch・lockfileをcommitします。bracesとnode-forgeの上流advisoryは修正版が出るまでversion報告へ残るため、実際に導入したbackportを検証します。その他のadvisoryはhost検証を阻止します。このpnpm手順はnpmだけのNuxt hostを対象としません。core単独導入とNuxtアプリ全体は別の検証範囲です。
+
+Dependency updates: [repository policy](docs/dependency-updates.md).
+Registry releases: [version tags and GitHub OIDC](docs/registry-release.md).
