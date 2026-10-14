@@ -45,10 +45,10 @@ Import `isProviderAuthDescriptor` from `@nuxtjp/provider-auth/core` before rende
 
 ## Host dependency security
 
-A Nuxt application must audit its complete dependency graph. Nuxt's transitive dependencies currently require the reviewed root-level overrides and backports distributed in `@nuxtjp/local-runtime@0.1.4`. This module does not silently install Nuxt or apply dependency patches. For a Nuxt host, configure the application explicitly:
+A Nuxt application must audit its complete dependency graph. Nuxt's transitive dependencies currently require the reviewed root-level overrides and backports distributed in `@nuxtjp/local-runtime`. This module does not silently install Nuxt or apply dependency patches. For a Nuxt host, configure the application explicitly:
 
 ```sh
-pnpm add -D @nuxtjp/local-runtime@0.1.4
+pnpm add -D @nuxtjp/local-runtime
 node node_modules/@nuxtjp/local-runtime/security/apply.mjs --project-root . --apply
 pnpm install --no-frozen-lockfile
 pnpm install --frozen-lockfile
@@ -59,3 +59,6 @@ pnpm audit --json
 Commit the generated root configuration, patches and lockfile. The braces and node-forge upstream advisories remain in version-only reports until upstream releases fixed versions; verify the actual installed backports. Any other advisory blocks host validation. npm-only Nuxt hosts are not covered by this pnpm backport procedure. Standalone core installation and a complete Nuxt application are separate verification scopes.
 
 [OSS responsibility and source completion](docs/oss-source-contract.md) defines the supported package boundary and required acceptance. It does not declare unexecuted source, distribution or production checks complete.
+
+Dependency updates: [repository policy](docs/dependency-updates.md).
+Registry releases: [version tags and GitHub OIDC](docs/registry-release.md).
