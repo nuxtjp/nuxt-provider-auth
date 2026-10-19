@@ -47,8 +47,8 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@nuxt/kit": "4.6.1",
-    "@nuxt/schema": "4.6.1",
+    "@nuxt/kit": "4.6.2",
+    "@nuxt/schema": "4.6.2",
     "@types/node": "24.19.2",
     "typescript": "5.9.3",
     "vue": "3.5.44",
