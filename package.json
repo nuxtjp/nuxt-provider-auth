@@ -62,5 +62,12 @@
     "nuxt": {
       "optional": true
     }
-  }
+  },
+  "keywords": [
+    "nuxt",
+    "vue",
+    "authentication",
+    "oauth2",
+    "typescript"
+  ]
 }
