@@ -47,11 +47,11 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@nuxt/kit": "4.6.3",
-    "@nuxt/schema": "4.6.3",
+    "@nuxt/kit": "4.6.4",
+    "@nuxt/schema": "4.6.4",
     "@types/node": "24.19.2",
     "typescript": "5.9.3",
-    "vue": "3.5.44",
+    "vue": "3.5.45",
     "vue-tsc": "3.3.14"
   },
   "repository": {
